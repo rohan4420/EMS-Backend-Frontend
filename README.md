@@ -22,6 +22,7 @@ The communication between the frontend and backend is facilitated by Axios, a po
 3. **Folder Structure with Vite:**
    - Consider using Vite for React to simplify and enhance the understanding of folder structures, facilitating an organized and scalable project.
 
-![Workflow Image](path/to/your/image.png)
+![Workflow Image](![Workflow](https://github.com/rohan4420/EMS-Backend-Frontend/assets/155799282/a063d78c-014f-4bdd-a645-a328a5792d47)
+)
 
 Feel free to adapt and include this information in your `readme.md` file to provide a comprehensive overview of your Employee Management System project.
