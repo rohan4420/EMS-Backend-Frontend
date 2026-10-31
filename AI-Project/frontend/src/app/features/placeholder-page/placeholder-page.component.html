@@ -1,0 +1,24 @@
+<main class="page">
+  @if (page().isLanding) {
+    <section class="welcome">
+      <p class="eyebrow">One wedding. One shared space.</p>
+      <h1>{{ page().title }}</h1>
+      <p class="welcome__description">{{ page().description }}</p>
+      <div class="welcome__actions">
+        <a class="button button--primary" routerLink="/signup">Create your account</a>
+        <a class="button button--quiet" routerLink="/login">Sign in</a>
+      </div>
+      <p class="welcome__note">Made for couples, family organizers, and the people they love.</p>
+    </section>
+  } @else {
+    <section class="page-heading">
+      <p class="eyebrow">Make My Marriage</p>
+      <h1>{{ page().title }}</h1>
+      <p>{{ page().description }}</p>
+    </section>
+    <app-empty-state
+      title="This space is ready for what comes next"
+      description="The route and shared application shell are in place. Forms and wedding-planning workflows are intentionally not part of this scaffold."
+    />
+  }
+</main>

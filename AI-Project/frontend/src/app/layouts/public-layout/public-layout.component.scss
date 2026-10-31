@@ -1,0 +1,126 @@
+.public-shell {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.public-header {
+  display: flex;
+  width: min(100% - 3rem, 76rem);
+  min-height: 5.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-inline: auto;
+  border-bottom: 1px solid rgb(233 223 220 / 75%);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+}
+
+.brand__monogram {
+  display: grid;
+  width: 2.35rem;
+  height: 2.35rem;
+  place-items: center;
+  border-radius: 0.75rem;
+  background: var(--color-burgundy);
+  color: #fff;
+  font:
+    500 1.15rem Georgia,
+    serif;
+}
+
+.brand__name {
+  color: var(--color-ink);
+  font:
+    500 1.05rem Georgia,
+    serif;
+  letter-spacing: 0.01em;
+}
+
+.public-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 3vw, 1.75rem);
+}
+
+.public-nav a {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.public-nav a:hover,
+.public-nav a.is-active {
+  color: var(--color-burgundy);
+}
+
+.public-nav .public-nav__cta {
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--color-burgundy);
+  border-radius: 0.6rem;
+  color: var(--color-burgundy);
+}
+
+.public-nav .public-nav__cta:hover {
+  background: var(--color-burgundy);
+  color: #fff;
+}
+
+.public-content {
+  display: grid;
+  width: min(100% - 3rem, 76rem);
+  flex: 1;
+  align-items: center;
+  margin-inline: auto;
+  padding-block: clamp(3rem, 8vw, 6.5rem);
+}
+
+.public-footer {
+  display: flex;
+  width: min(100% - 3rem, 76rem);
+  min-height: 4.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-inline: auto;
+  border-top: 1px solid var(--color-line);
+  color: var(--color-muted);
+  font-size: 0.78rem;
+}
+
+@media (max-width: 560px) {
+  .public-header,
+  .public-content,
+  .public-footer {
+    width: min(100% - 2rem, 76rem);
+  }
+
+  .public-header {
+    min-height: 4.75rem;
+  }
+
+  .brand__name {
+    font-size: 0.9rem;
+  }
+
+  .public-nav {
+    gap: 0.75rem;
+  }
+
+  .public-nav a {
+    font-size: 0.82rem;
+  }
+
+  .public-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: 1rem;
+  }
+}

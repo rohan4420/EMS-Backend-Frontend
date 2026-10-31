@@ -1,0 +1,21 @@
+<div class="public-shell">
+  <header class="public-header">
+    <a class="brand" routerLink="/" aria-label="Make My Marriage home">
+      <span class="brand__monogram" aria-hidden="true">M</span>
+      <span class="brand__name">Make My Marriage</span>
+    </a>
+    <nav class="public-nav" aria-label="Main navigation">
+      <a routerLink="/login" routerLinkActive="is-active">Sign in</a>
+      <a class="public-nav__cta" routerLink="/signup" routerLinkActive="is-active"> Get started </a>
+    </nav>
+  </header>
+
+  <div class="public-content">
+    <router-outlet />
+  </div>
+
+  <footer class="public-footer">
+    <span>Made for the moments that bring everyone together.</span>
+    <span>Make My Marriage</span>
+  </footer>
+</div>

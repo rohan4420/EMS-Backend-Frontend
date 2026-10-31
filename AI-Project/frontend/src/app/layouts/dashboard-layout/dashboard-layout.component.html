@@ -1,0 +1,33 @@
+<div class="organizer-shell">
+  <aside class="organizer-sidebar">
+    <a class="brand" routerLink="/" aria-label="Make My Marriage home">
+      <span class="brand__monogram" aria-hidden="true">M</span>
+      <span class="brand__name">Make My Marriage</span>
+    </a>
+    <p class="sidebar-caption">YOUR WEDDING</p>
+    <nav class="organizer-nav" aria-label="Wedding navigation">
+      <a routerLink="/dashboard" routerLinkActive="is-active">Overview</a>
+      <a routerLink="/events" routerLinkActive="is-active">Events</a>
+      <a routerLink="/guests" routerLinkActive="is-active">Guests</a>
+      <a routerLink="/invitations" routerLinkActive="is-active">Invitations</a>
+      <a routerLink="/rsvp" routerLinkActive="is-active">RSVPs</a>
+      <a routerLink="/expenses" routerLinkActive="is-active">Expenses</a>
+      <a routerLink="/tasks" routerLinkActive="is-active">Tasks</a>
+      <a routerLink="/calendar" routerLinkActive="is-active">Calendar</a>
+      <a routerLink="/gallery" routerLinkActive="is-active">Gallery</a>
+      <a routerLink="/wedding-website" routerLinkActive="is-active">Wedding website</a>
+      <a routerLink="/settings" routerLinkActive="is-active">Settings</a>
+    </nav>
+    <p class="sidebar-note">One shared wedding workspace</p>
+  </aside>
+
+  <main class="organizer-main">
+    <header class="organizer-topbar">
+      <span>Wedding planning</span>
+      <span class="organizer-avatar" aria-hidden="true">W</span>
+    </header>
+    <div class="organizer-content">
+      <router-outlet />
+    </div>
+  </main>
+</div>
