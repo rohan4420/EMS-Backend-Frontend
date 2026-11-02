@@ -42,14 +42,18 @@ No lint tool is configured in this scaffold.
   plus loading and API-error interceptors.
 - `src/app/shared/` contains reusable empty, loading and error states.
 - `src/app/layouts/` contains separate public and organizer layouts.
-- `src/app/features/placeholder-page/` provides the route-aware placeholder
-  used by the initial public and organizer routes.
+- `src/app/features/landing-page/` implements the Stitch-inspired public
+  landing page. Sign-in, sign-up, and organizer routes retain their scaffold
+  placeholders.
 - `public/` is the Angular CLI static asset directory.
+- `public/images/` contains locally served wedding photography from the
+  connected Stitch project.
 
 API calls use the documented `/api/v1` base path. Set the deployment API URL
 in the appropriate environment file; do not put credentials or secrets in
 frontend configuration.
 
-The approved Stitch wireframes were not present in the repository, so the
-initial shell uses a restrained burgundy palette as a temporary visual
-baseline. Replace it with the approved wireframes when they are available.
+The landing page follows the Make My Marriage design system and product scope:
+one shared wedding, organizer-managed photo albums, and guests who can RSVP
+without creating an account. Stitch credentials are used only by the local
+development tooling and are never included in the frontend.

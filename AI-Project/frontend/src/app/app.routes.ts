@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './core/guards/auth.guard';
+import { LandingPageComponent } from './features/landing-page/landing-page.component';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
 import { PublicLayoutComponent } from './layouts/public-layout/public-layout.component';
 import { PlaceholderPageComponent } from './features/placeholder-page/placeholder-page.component';
@@ -7,17 +8,13 @@ import { PlaceholderPageComponent } from './features/placeholder-page/placeholde
 export const routes: Routes = [
   {
     path: '',
+    pathMatch: 'full',
+    component: LandingPageComponent,
+  },
+  {
+    path: '',
     component: PublicLayoutComponent,
     children: [
-      {
-        path: '',
-        component: PlaceholderPageComponent,
-        data: {
-          title: 'Make My Marriage',
-          description: 'A thoughtful space for your family to plan and celebrate one wedding.',
-          variant: 'landing',
-        },
-      },
       {
         path: 'login',
         component: PlaceholderPageComponent,

@@ -1,0 +1,277 @@
+<div class="landing-page">
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a
+        class="brand"
+        routerLink="/"
+        aria-label="Make My Marriage home"
+        (click)="closeMobileMenu()"
+      >
+        <span class="brand__monogram" aria-hidden="true">M</span>
+        <span class="brand__name">Make My Marriage</span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-controls="primary-navigation"
+        [attr.aria-expanded]="mobileMenuOpen()"
+        [attr.aria-label]="mobileMenuOpen() ? 'Close navigation menu' : 'Open navigation menu'"
+        (click)="toggleMobileMenu()"
+      >
+        <span class="material-symbols-outlined" aria-hidden="true">
+          {{ mobileMenuOpen() ? 'close' : 'menu' }}
+        </span>
+      </button>
+
+      <nav
+        class="site-nav"
+        id="primary-navigation"
+        aria-label="Main navigation"
+        [class.site-nav--open]="mobileMenuOpen()"
+      >
+        <a href="#home" [class.site-nav__link--active]="activeSection() === 'home'" [attr.aria-current]="activeSection() === 'home' ? 'location' : null" (click)="navigateToSection($event, 'home')">Home</a>
+        <a href="#features" [class.site-nav__link--active]="activeSection() === 'features'" [attr.aria-current]="activeSection() === 'features' ? 'location' : null" (click)="navigateToSection($event, 'features')">Features</a>
+        <a href="#how-it-works" [class.site-nav__link--active]="activeSection() === 'how-it-works'" [attr.aria-current]="activeSection() === 'how-it-works' ? 'location' : null" (click)="navigateToSection($event, 'how-it-works')">How it works</a>
+        <a href="#about-us" [class.site-nav__link--active]="activeSection() === 'about-us'" [attr.aria-current]="activeSection() === 'about-us' ? 'location' : null" (click)="navigateToSection($event, 'about-us')">About us</a>
+        <div class="site-nav__mobile-actions">
+          <a class="site-nav__login" routerLink="/login" (click)="closeMobileMenu()">Sign in</a>
+          <a
+            class="button button--primary button--small"
+            routerLink="/signup"
+            (click)="closeMobileMenu()"
+          >
+            Get started
+          </a>
+        </div>
+      </nav>
+
+      <div class="site-header__actions">
+        <a class="site-header__login" routerLink="/login">Sign in</a>
+        <a class="button button--primary button--small" routerLink="/signup">Get started</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section-wrap" id="home">
+      <div class="hero__copy">
+        <p class="eyebrow"><span class="eyebrow__dot"></span>A shared space for your celebration</p>
+        <h1>Your Wedding.<br /><em>Your People.</em><br />One Beautiful Plan.</h1>
+        <p class="hero__description">
+          Bring your wedding planning, family, events, guests, invitations and memories together in
+          one shared space. Plan every celebration with less chaos and more joy.
+        </p>
+        <div class="hero__actions">
+          <a class="button button--primary" routerLink="/signup">
+            Start planning
+            <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+          </a>
+          <a class="button button--secondary" href="#features">Explore features</a>
+        </div>
+        <p class="hero__note">One wedding. One shared plan. Your whole family, together.</p>
+      </div>
+      <div class="hero__visual">
+        <img
+          class="hero__image"
+          src="/images/wedding-hero.jpg"
+          alt="A couple sharing a joyful moment during their wedding reception"
+          fetchpriority="high"
+          width="1364"
+          height="768"
+        />
+        <div class="hero__caption">
+          <span class="material-symbols-outlined" aria-hidden="true">favorite</span>
+          <span>A celebration made yours</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="problem section-band" aria-labelledby="problem-title">
+      <div class="section-wrap">
+        <div class="section-heading">
+          <p class="eyebrow">A better way to plan together</p>
+          <h2 id="problem-title">
+            Wedding planning brings everyone together.<br />So should your plan.
+          </h2>
+          <p>
+            When the details live everywhere, even the best moments can get lost in the planning.
+            Bring your people and plans into one calmer place.
+          </p>
+        </div>
+        <div class="problem-grid">
+          <article class="problem-card">
+            <span class="problem-card__label">The familiar tangle</span>
+            <ul>
+              <li>
+                <span aria-hidden="true">×</span> Plans scattered across chats and spreadsheets
+              </li>
+              <li>
+                <span aria-hidden="true">×</span> Guest lists and family groups to keep in sync
+              </li>
+              <li><span aria-hidden="true">×</span> Many events, dates and details to remember</li>
+              <li>
+                <span aria-hidden="true">×</span> Invitations, responses and follow-ups to track
+              </li>
+              <li><span aria-hidden="true">×</span> Tasks and expenses in different places</li>
+            </ul>
+          </article>
+          <article class="solution-card">
+            <span class="solution-card__icon material-symbols-outlined" aria-hidden="true">
+              diversity_3
+            </span>
+            <p class="eyebrow">One shared wedding workspace</p>
+            <h3>More time for what brings you together.</h3>
+            <p>
+              Keep the celebrations, guests and responsibilities in one shared plan. The couple and
+              authorized family organizers can stay connected without juggling a dozen tools.
+            </p>
+            <a href="#how-it-works" class="text-link">
+              See how it works <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="features section-wrap" id="features">
+      <div class="section-heading">
+        <p class="eyebrow">Everything in one place</p>
+        <h2>Everything your wedding needs,<br />in one place.</h2>
+        <p>
+          Thoughtful tools to keep every celebration detail clear and every organizer in the loop.
+        </p>
+      </div>
+      <div class="feature-grid">
+        @for (feature of features; track feature.title) {
+          <article class="feature-card">
+            <span class="feature-card__icon material-symbols-outlined" aria-hidden="true">
+              {{ feature.icon }}
+            </span>
+            <h3>{{ feature.title }}</h3>
+            <p>{{ feature.description }}</p>
+          </article>
+        }
+      </div>
+    </section>
+
+    <section class="how-it-works section-band" id="how-it-works">
+      <div class="section-wrap">
+        <div class="section-heading">
+          <p class="eyebrow">A thoughtful beginning</p>
+          <h2>From the first plan<br />to the final celebration.</h2>
+        </div>
+        <div class="steps-grid">
+          @for (step of steps; track step.number) {
+            <article class="step-card">
+              <span class="step-card__number">{{ step.number }}</span>
+              <h3>{{ step.title }}</h3>
+              <p>{{ step.description }}</p>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="collaboration section-wrap" id="about-us">
+      <div class="collaboration__visual">
+        <img
+          src="/images/wedding-portal.jpg"
+          alt="A wedding celebration shared with family and loved ones"
+          loading="lazy"
+          width="1600"
+          height="821"
+        />
+        <div class="collaboration__badge">
+          <span class="material-symbols-outlined" aria-hidden="true">groups</span>
+          <span>One celebration, planned together</span>
+        </div>
+      </div>
+      <div class="collaboration__copy">
+        <p class="eyebrow">A little more together</p>
+        <h2>A wedding planned together feels even more special.</h2>
+        <p>
+          The couple and authorized family organizers can work side by side, each with their own
+          account and access to the parts they help manage.
+        </p>
+        <p class="collaboration__detail">
+          <span class="material-symbols-outlined" aria-hidden="true">link</span>
+          Guests can open their invitation and RSVP from a shared link—no full account needed.
+        </p>
+        <p class="collaboration__detail">
+          <span class="material-symbols-outlined" aria-hidden="true">lock</span>
+          One private wedding space, with access kept in the right hands.
+        </p>
+      </div>
+    </section>
+
+    <section class="memories section-band" aria-labelledby="memories-title">
+      <div class="section-wrap">
+        <div class="section-heading">
+          <p class="eyebrow">A place for the moments</p>
+          <h2 id="memories-title">Every celebration deserves<br />to be remembered.</h2>
+          <p>
+            Keep the photographs that tell your family’s story together, organized around the
+            celebrations they came from.
+          </p>
+        </div>
+        <div class="memory-grid">
+          @for (photo of gallery; track photo.src) {
+            <figure class="memory-card" [class]="photo.className">
+              <img [src]="photo.src" [alt]="photo.alt" loading="lazy" width="1600" height="900" />
+              <figcaption>{{ photo.caption }}</figcaption>
+            </figure>
+          }
+        </div>
+        <p class="memories__note">
+          Wedding photos are added to the gallery by authorized organizers.
+        </p>
+      </div>
+    </section>
+
+    <section class="final-cta" id="contact">
+      <div class="section-wrap final-cta__inner">
+        <p class="eyebrow">The beginning of something beautiful</p>
+        <h2>Make planning beautiful.<br />Make memories unforgettable.</h2>
+        <p>Bring your people, plans and celebrations together with Make My Marriage.</p>
+        <a class="button button--light" routerLink="/signup">
+          Start planning your wedding
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__brand">
+        <a class="brand" routerLink="/">
+          <span class="brand__monogram" aria-hidden="true">M</span>
+          <span class="brand__name">Make My Marriage</span>
+        </a>
+        <p>A shared wedding planning space for couples and the families who celebrate with them.</p>
+      </div>
+      <div class="site-footer__links">
+        <h2>Explore</h2>
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#about-us">About us</a>
+      </div>
+      <div class="site-footer__links">
+        <h2>Your space</h2>
+        <a routerLink="/login">Sign in</a>
+        <a routerLink="/signup">Get started</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="site-footer__links">
+        <h2>Information</h2>
+        <span>Privacy policy</span>
+        <span>Terms &amp; conditions</span>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© 2026 Make My Marriage</span>
+      <span>One celebration. One shared plan.</span>
+    </div>
+  </footer>
+</div>
